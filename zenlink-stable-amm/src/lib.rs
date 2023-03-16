@@ -62,7 +62,7 @@ use sp_runtime::traits::{AccountIdConversion, StaticLookup};
 use sp_std::{ops::Sub, vec, vec::Vec};
 
 pub use pallet::*;
-pub use primitives::*;
+use primitives::*;
 use traits::{StablePoolLpCurrencyIdGenerate, ValidateCurrency};
 pub use weights::WeightInfo;
 
