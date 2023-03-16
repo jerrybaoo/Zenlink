@@ -24,11 +24,11 @@ frame-benchmarking = { git = "https://github.com/paritytech/substrate", default-
 
 zenlink-protocol = {package = "zenlink-protocol", path = "../zenlink-protocol", version = "0.4.4", default-features = false}
 zenlink-stable-amm = {package = "zenlink-stable-amm", path = "../zenlink-stable-amm",version = "0.1.0", default-features = false}
-orml-traits = { git = "https://github.com/open-web3-stack/open-runtime-module-library", rev = "05f0007b30c98303078ee64d34390233d6ffb30e", default-features = false }
+orml-traits = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "polkadot-v0.9.37", default-features = false }
 
 [dev-dependencies]
-orml-traits = { git = "https://github.com/open-web3-stack/open-runtime-module-library", rev = "05f0007b30c98303078ee64d34390233d6ffb30e", default-features = false }
-orml-tokens = { git = "https://github.com/open-web3-stack/open-runtime-module-library", rev = "05f0007b30c98303078ee64d34390233d6ffb30e", default-features = false }
+orml-traits = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "polkadot-v0.9.37", default-features = false }
+orml-tokens = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "polkadot-v0.9.37", default-features = false }
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37" }
 sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
 sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.37", default-features = false }
