@@ -407,6 +407,9 @@ pub mod pallet {
 		PairNotExists,
 		/// Asset does not exist.
 		AssetNotExists,
+		Asset0NotExists,
+		Asset1NotExists,
+		AssetLPNotExists,
 		/// Liquidity is not enough.
 		InsufficientLiquidity,
 		/// Trading pair does have enough foreign.
@@ -631,8 +634,8 @@ pub mod pallet {
 
 			ensure!(asset_0 != asset_1, Error::<T>::DeniedCreatePair);
 
-			ensure!(T::MultiAssetsHandler::is_exists(asset_0), Error::<T>::AssetNotExists);
-			ensure!(T::MultiAssetsHandler::is_exists(asset_1), Error::<T>::AssetNotExists);
+			ensure!(T::MultiAssetsHandler::is_exists(asset_0), Error::<T>::Asset0NotExists);
+			ensure!(T::MultiAssetsHandler::is_exists(asset_1), Error::<T>::Asset1NotExists);
 
 			let pair = Self::sort_asset_id(asset_0, asset_1);
 			PairStatuses::<T>::try_mutate(pair, |status| match status {
