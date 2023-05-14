@@ -46,14 +46,6 @@ benchmarks! {
 
 	}:_(RawOrigin::Root, 5)
 
-	create_pair {
-		let caller: T::AccountId = whitelisted_caller();
-
-		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_0.into(), &caller, 1000 * UNIT));
-		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_1.into(), &caller, 1000 * UNIT));
-
-	} : _(RawOrigin::Root, ASSET_0.into(), ASSET_1.into())
-
 	bootstrap_create {
 		let reward:Vec<T::AssetId> =  vec![ASSET_0.into()];
 		let reward_amounts: Vec<(T::AssetId, u128)> = vec![(ASSET_1.into(), 0)];

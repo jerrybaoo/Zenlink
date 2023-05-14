@@ -620,7 +620,7 @@ pub mod pallet {
 		/// - `asset_0`: Asset which make up Pair
 		/// - `asset_1`: Asset which make up Pair
 		#[pallet::call_index(4)]
-		#[pallet::weight(T::WeightInfo::create_pair())]
+		#[pallet::weight(0)]
 		pub fn create_pair(
 			origin: OriginFor<T>,
 			asset_0: T::AssetId,
