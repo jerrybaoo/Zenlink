@@ -74,8 +74,8 @@ std = [
 ]
 
 runtime-benchmarks = [
-  "frame-benchmarking",
+  'frame-benchmarking/runtime-benchmarks',
   "pallet-assets/runtime-benchmarks",
-  "pallet-asset-manager",
+  "pallet-asset-manager/runtime-benchmarks",
 ]
 try-runtime = ["frame-support/try-runtime"]
