@@ -12,7 +12,7 @@ targets = ['x86_64-unknown-linux-gnu']
 log = { version = "0.4.14", default-features = false }
 serde = { version = "1.0.119", optional = true }
 # alias "parity-scale-code" to "codec"
-codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false }
+codec = { package = "parity-scale-codec", version = "3.4.0", default-features = false }
 scale-info = { version = "2.1.1", default-features = false, features = [
   "derive",
 ] }
@@ -36,6 +36,9 @@ cumulus-primitives-core = { git = "https://github.com/paritytech/cumulus", defau
 
 orml-traits = { git = "https://github.com/manta-network/open-runtime-module-library", branch = "polkadot-v0.9.37", default-features = false }
 orml-tokens = { git = "https://github.com/manta-network/open-runtime-module-library", branch = "polkadot-v0.9.37", default-features = false }
+
+pallet-asset-manager = { git = "https://github.com/manta-network/Manta", branch = "zenlink_benchmark", default-features = false, optional = true }
+manta-primitives = { git = "https://github.com/manta-network/Manta", branch = "zenlink_benchmark", default-features = false, optional = true }
 
 [dev-dependencies]
 sp-core = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.37" }
@@ -63,7 +66,10 @@ std = [
 
   "orml-traits/std",
   "orml-tokens/std",
+
+  "manta-primitives/std",
+  "pallet-asset-manager/std",
 ]
 
-runtime-benchmarks = ["frame-benchmarking"]
+runtime-benchmarks = ["frame-benchmarking", "pallet-asset-manager"]
 try-runtime = ["frame-support/try-runtime"]

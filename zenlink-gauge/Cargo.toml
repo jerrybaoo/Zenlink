@@ -7,7 +7,7 @@ license = "GPL-3.0-only"
 
 [dependencies]
 serde = { version = "1.0.119", optional = true }
-codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false }
+codec = { package = "parity-scale-codec", version = "3.4.0", default-features = false }
 scale-info = { version = "2.1.1", default-features = false, features = [
   "derive",
 ] }

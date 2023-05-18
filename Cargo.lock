@@ -1579,6 +1579,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "manta-primitives"
+version = "4.0.7"
+source = "git+https://github.com/manta-network/Manta?branch=zenlink_benchmark#c736f1b5e5268ca0c22ef3a12b840451df30cf65"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "log",
+ "orml-traits",
+ "parity-scale-codec",
+ "scale-info",
+ "smallvec",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+ "xcm",
+ "xcm-builder",
+ "xcm-executor",
+]
+
+[[package]]
 name = "matchers"
 version = "0.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1863,6 +1884,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-asset-manager"
+version = "4.0.7"
+source = "git+https://github.com/manta-network/Manta?branch=zenlink_benchmark#c736f1b5e5268ca0c22ef3a12b840451df30cf65"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "log",
+ "manta-primitives",
+ "orml-traits",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-arithmetic",
+ "sp-runtime",
+ "sp-std",
+ "xcm",
+]
+
+[[package]]
 name = "pallet-balances"
 version = "4.0.0-dev"
 source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37#946507ba9ef13e263534176b7b74e26fc56efbd4"
@@ -1896,10 +1935,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-transaction-payment"
+version = "4.0.0-dev"
+source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.37#6fa7fe1326ecaab9921c2c3888530ad679cfbb87"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "parity-scale-codec"
-version = "3.3.0"
+version = "3.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3840933452adf7b3b9145e27086a5a3376c619dca1a21b1e5a5af0d54979bed"
+checksum = "5ddb756ca205bd108aee3c62c6d3c994e1df84a59b9d6d4a5ea42ee1fd5a9a28"
 dependencies = [
  "arrayvec 0.7.2",
  "bitvec",
@@ -3923,6 +3978,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "xcm-builder"
+version = "0.9.37"
+source = "git+https://github.com/paritytech/polkadot?branch=release-v0.9.37#645723987cf9662244be8faf4e9b63e8b9a1b3a3"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "log",
+ "pallet-transaction-payment",
+ "parity-scale-codec",
+ "polkadot-parachain",
+ "scale-info",
+ "sp-arithmetic",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+ "xcm",
+ "xcm-executor",
+]
+
+[[package]]
 name = "xcm-executor"
 version = "0.9.37"
 source = "git+https://github.com/paritytech/polkadot?branch=release-v0.9.37#645723987cf9662244be8faf4e9b63e8b9a1b3a3"
@@ -3980,8 +4055,10 @@ dependencies = [
  "frame-support",
  "frame-system",
  "log",
+ "manta-primitives",
  "orml-tokens",
  "orml-traits",
+ "pallet-asset-manager",
  "pallet-balances",
  "parity-scale-codec",
  "scale-info",

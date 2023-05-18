@@ -5,6 +5,8 @@
 
 use super::*;
 use crate::Pallet as ZenlinkPallet;
+use manta_primitives::assets::{AssetConfig, FungibleLedger, TestingDefault};
+use pallet_asset_manager::Pallet as AssetManager;
 
 use frame_benchmarking::{benchmarks, whitelisted_caller};
 use frame_support::assert_ok;
@@ -116,6 +118,10 @@ benchmarks! {
 	}:_(RawOrigin::Signed(caller.clone()), lookup_of_account::<T>(caller.clone()), ASSET_0.into(), ASSET_1.into(), 120u128.saturated_into())
 
 	bootstrap_end{
+		let location = T::Location::default();
+		let metadata = <T::AssetConfig as AssetConfig<T>>::AssetRegistryMetadata::testing_default();
+		AssetManager::<T>::do_register_lp_asset(ASSET_0.into(), ASSET_1.into(), &location, &metadata)?;
+
 		let caller: T::AccountId = whitelisted_caller();
 
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_0.into(), &caller, 1000 * UNIT));
