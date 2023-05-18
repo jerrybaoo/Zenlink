@@ -39,7 +39,7 @@ orml-traits = { git = "https://github.com/manta-network/open-runtime-module-libr
 orml-tokens = { git = "https://github.com/manta-network/open-runtime-module-library", branch = "polkadot-v0.9.37", default-features = false }
 
 pallet-asset-manager = { git = "https://github.com/manta-network/Manta", branch = "zenlink_benchmark", default-features = false, optional = true }
-manta-primitives = { git = "https://github.com/manta-network/Manta", branch = "zenlink_benchmark", default-features = false, optional = true }
+manta-primitives = { git = "https://github.com/manta-network/Manta", branch = "zenlink_benchmark", default-features = false }
 
 [dev-dependencies]
 sp-core = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.37" }
