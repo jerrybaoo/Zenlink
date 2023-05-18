@@ -37,8 +37,7 @@ fn run_to_block<T: Config>(n: u32) {
 }
 
 benchmarks! {
-
-	where_clause { where T::AssetId: From<AssetId>}
+	where_clause { where T: pallet_assets::Config + pallet_asset_manager::Config, <T as pallet_asset_manager::Config>::Balance: From<u128>, <T as pallet_asset_manager::Config>::AssetId: From<u32>, T::AssetId: From<AssetId> }
 
 	set_fee_receiver{
 		let caller: T::AccountId = whitelisted_caller();
