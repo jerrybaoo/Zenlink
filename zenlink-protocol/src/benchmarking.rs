@@ -38,7 +38,7 @@ fn run_to_block<T: Config>(n: u32) {
 
 benchmarks! {
 	where_clause { where
-		T: pallet_assets::Config + pallet_asset_manager::Config + ZenlinkConfig,
+		T: pallet_assets::Config + pallet_asset_manager::Config,
 		<T as pallet_asset_manager::Config>::Balance: From<u128>,
 		<T as pallet_asset_manager::Config>::AssetId: From<u32>,
 		<T as ZenlinkConfig>::AssetId: From<AssetId>
@@ -125,13 +125,9 @@ benchmarks! {
 		let location = T::Location::default();
 		let metadata = <T::AssetConfig as AssetConfig<T>>::AssetRegistryMetadata::testing_default();
 
-		let metadata = <T::AssetConfig as AssetConfig<T>>::AssetRegistryMetadata::testing_default();
 		AssetManager::<T>::do_register_asset(&location, &metadata)?;
 		AssetManager::<T>::do_register_asset(&location, &metadata)?;
-
-		AssetManager::<T>::do_register_lp_asset(<T as pallet_asset_manager::Config>::AssetId::from(8),
-			<T as pallet_asset_manager::Config>::AssetId::from(9),
-			&location, &metadata)?;
+		AssetManager::<T>::do_register_lp_asset(8u32.into(), 9u32.into(), &location, &metadata)?;
 
 		let caller: T::AccountId = whitelisted_caller();
 
