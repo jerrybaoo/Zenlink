@@ -1583,6 +1583,7 @@ name = "manta-primitives"
 version = "4.0.7"
 source = "git+https://github.com/manta-network/Manta?branch=zenlink_benchmark#621f98a596359a874dcd9660a84ed12e700554e8"
 dependencies = [
+ "frame-benchmarking",
  "frame-support",
  "frame-system",
  "log",
@@ -1888,6 +1889,7 @@ name = "pallet-asset-manager"
 version = "4.0.7"
 source = "git+https://github.com/manta-network/Manta?branch=zenlink_benchmark#621f98a596359a874dcd9660a84ed12e700554e8"
 dependencies = [
+ "frame-benchmarking",
  "frame-support",
  "frame-system",
  "log",
