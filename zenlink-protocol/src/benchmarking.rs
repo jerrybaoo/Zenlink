@@ -4,7 +4,7 @@
 #![cfg(feature = "runtime-benchmarks")]
 
 use super::*;
-use crate::Pallet as ZenlinkPallet;
+use crate::{Config as ZenlinkConfig, Pallet as ZenlinkPallet};
 use manta_primitives::assets::{AssetConfig, FungibleLedger, TestingDefault};
 use pallet_asset_manager::Pallet as AssetManager;
 
@@ -41,7 +41,7 @@ benchmarks! {
 		T: pallet_assets::Config + pallet_asset_manager::Config,
 		<T as pallet_asset_manager::Config>::Balance: From<u128>,
 		<T as pallet_asset_manager::Config>::AssetId: From<u32>,
-		<T as crate::Config>::AssetId: From<AssetId>
+		<T as ZenlinkConfig>::AssetId: From<AssetId>
 	}
 
 	set_fee_receiver{
@@ -53,8 +53,8 @@ benchmarks! {
 	}:_(RawOrigin::Root, 5)
 
 	bootstrap_create {
-		let reward:Vec<<T as crate::Config>::AssetId> =  vec![ASSET_0.into()];
-		let reward_amounts: Vec<(<T as crate::Config>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
+		let reward:Vec<<T as ZenlinkConfig>::AssetId> =  vec![ASSET_0.into()];
+		let reward_amounts: Vec<(<T as ZenlinkConfig>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
 	}: _(RawOrigin::Root, ASSET_0.into(), ASSET_1.into(), 1000, 1000, 1000_000_000, 1000_000_000, 100u128.saturated_into(), reward, reward_amounts)
 
 	bootstrap_contribute{
@@ -63,8 +63,8 @@ benchmarks! {
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_0.into(), &caller, 1000 * UNIT));
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_1.into(), &caller, 1000 * UNIT));
 
-		let reward:Vec<<T as crate::Config>::AssetId> =  vec![ASSET_0.into()];
-		let reward_amounts: Vec<(<T as crate::Config>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
+		let reward:Vec<<T as ZenlinkConfig>::AssetId> =  vec![ASSET_0.into()];
+		let reward_amounts: Vec<(<T as ZenlinkConfig>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
 		assert_ok!(ZenlinkPallet::<T>::bootstrap_create(
 			(RawOrigin::Root).into(),
 			ASSET_0.into(),
@@ -86,8 +86,8 @@ benchmarks! {
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_0.into(), &caller, 1000 * UNIT));
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_1.into(), &caller, 1000 * UNIT));
 
-		let reward:Vec<<T as crate::Config>::AssetId> =  vec![ASSET_0.into()];
-		let reward_amounts: Vec<(<T as crate::Config>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
+		let reward:Vec<<T as ZenlinkConfig>::AssetId> =  vec![ASSET_0.into()];
+		let reward_amounts: Vec<(<T as ZenlinkConfig>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
 
 		assert_ok!(ZenlinkPallet::<T>::bootstrap_create(
 			(RawOrigin::Root).into(),
@@ -138,8 +138,8 @@ benchmarks! {
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_0.into(), &caller, 1000 * UNIT));
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_1.into(), &caller, 1000 * UNIT));
 
-		let reward:Vec<<T as crate::Config>::AssetId> =  vec![ASSET_0.into()];
-		let reward_amounts: Vec<(<T as crate::Config>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
+		let reward:Vec<<T as ZenlinkConfig>::AssetId> =  vec![ASSET_0.into()];
+		let reward_amounts: Vec<(<T as ZenlinkConfig>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
 
 		assert_ok!(ZenlinkPallet::<T>::bootstrap_create(
 			(RawOrigin::Root).into(),
@@ -169,8 +169,8 @@ benchmarks! {
 	bootstrap_update{
 		let caller: T::AccountId = whitelisted_caller();
 
-		let reward:Vec<<T as crate::Config>::AssetId> =  vec![ASSET_0.into()];
-		let reward_amounts: Vec<(<T as crate::Config>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
+		let reward:Vec<<T as ZenlinkConfig>::AssetId> =  vec![ASSET_0.into()];
+		let reward_amounts: Vec<(<T as ZenlinkConfig>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
 
 		assert_ok!(ZenlinkPallet::<T>::bootstrap_create(
 			(RawOrigin::Root).into(),
@@ -193,8 +193,8 @@ benchmarks! {
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_0.into(), &caller, 1000 * UNIT));
 		assert_ok!(<T as Config>::MultiAssetsHandler::deposit(ASSET_1.into(), &caller, 1000 * UNIT));
 
-		let reward:Vec<<T as crate::Config>::AssetId> =  vec![ASSET_0.into()];
-		let reward_amounts: Vec<(<T as crate::Config>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
+		let reward:Vec<<T as ZenlinkConfig>::AssetId> =  vec![ASSET_0.into()];
+		let reward_amounts: Vec<(<T as ZenlinkConfig>::AssetId, u128)> = vec![(ASSET_1.into(), 0)];
 
 		assert_ok!(ZenlinkPallet::<T>::bootstrap_create(
 			(RawOrigin::Root).into(),
@@ -281,7 +281,7 @@ benchmarks! {
 			0,
 			100u32.saturated_into()));
 
-		let path: Vec<<T as crate::Config>::AssetId> = vec![ASSET_0.into(), ASSET_1.into(), ASSET_2.into()];
+		let path: Vec<<T as ZenlinkConfig>::AssetId> = vec![ASSET_0.into(), ASSET_1.into(), ASSET_2.into()];
 
 	}:_(RawOrigin::Signed(caller.clone()), 1* UNIT, 0,path, lookup_of_account::<T>(caller.clone()).into(), 100u32.saturated_into())
 
@@ -314,6 +314,6 @@ benchmarks! {
 			0,
 			100u32.saturated_into()));
 
-		let path: Vec<<T as crate::Config>::AssetId> = vec![ASSET_0.into(), ASSET_1.into(), ASSET_2.into()];
+		let path: Vec<<T as ZenlinkConfig>::AssetId> = vec![ASSET_0.into(), ASSET_1.into(), ASSET_2.into()];
 	}:_(RawOrigin::Signed(caller.clone()), 1* UNIT, 10*UNIT,path, lookup_of_account::<T>(caller.clone()).into(), 100u32.saturated_into())
 }
