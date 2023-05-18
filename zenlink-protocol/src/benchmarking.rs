@@ -38,7 +38,7 @@ fn run_to_block<T: Config>(n: u32) {
 
 benchmarks! {
 	where_clause { where
-		T: pallet_assets::Config + pallet_asset_manager::Config,
+		T: pallet_assets::Config + pallet_asset_manager::Config + ZenlinkConfig,
 		<T as pallet_asset_manager::Config>::Balance: From<u128>,
 		<T as pallet_asset_manager::Config>::AssetId: From<u32>,
 		<T as ZenlinkConfig>::AssetId: From<AssetId>
