@@ -16,7 +16,7 @@ fn asset0<T: Config>()->AssetId{
     AssetId{
 		chain_id: T::SelfParaId::get(),
 		asset_type: 2,
-		asset_index: 2,
+		asset_index: 8,
 	}
 }
 
@@ -24,7 +24,7 @@ fn asset1<T: Config>()->AssetId{
     AssetId{
 		chain_id: T::SelfParaId::get(),
 		asset_type: 2,
-		asset_index: 3,
+		asset_index: 9,
 	}
 }
 
@@ -32,7 +32,7 @@ fn asset2<T: Config>()->AssetId{
     AssetId{
 		chain_id: T::SelfParaId::get(),
 		asset_type: 2,
-		asset_index: 4,
+		asset_index: 10,
 	}
 }
 
